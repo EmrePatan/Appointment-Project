@@ -1,0 +1,49 @@
+﻿@model RandevuSistemiGüncel.ViewModels.DoktorlarViewModel
+@{
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>İsim</th>
+                    <th>Soyisim</th>
+                    <th>Ünvanı</th>
+                    <th>Branşı</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    @for (int i = 1; i <= Model.DoktorListesi.Count; i++)
+                    {
+                        <th scope="row">@i</th>
+
+                        foreach (var doktorlar in Model.DoktorListesi)
+                        {
+                            if (doktorlar.ID == i)
+                            {
+                                <td>@doktorlar.Ad</td>
+                                <td>@doktorlar.Soyad</td>
+                                <td>@doktorlar.Unvan</td>
+                                <td>@doktorlar.Branş</td>
+                            }
+                        }
+                    <tr></tr>
+                    }
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </body>
+</html>

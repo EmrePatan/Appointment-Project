@@ -1,0 +1,213 @@
+﻿@model RandevuSistemiGüncel.ViewModels.DoktorlarViewModel
+@{
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RandevuAl2</title>
+</head>
+<body>
+
+    <div>
+        @using (Html.BeginForm("Hastalar", "Hastalar"))
+        {
+            <div class="container" id="toggleElement">
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <span class="input-group-addon" id="@TempData["HastaIDGöster"]">TC</span>
+                        <label class="form-control disabled">@TempData["HastaTCGöster"]</label>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <span class="input-group-addon">Ad</span>
+                        <label class="form-control">@TempData["HastaAdıGöster"]</label>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <span class="input-group-addon">Soyad</span>
+                        <label class="form-control">@TempData["HastaSoyAdıGöster"]</label>
+                    </div>
+
+                    <div class="text-center">
+                        <label class="btn btn-warning ">Giriş Yap</label>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>                                   @*RandevuAl'dan gelen elemanlarımız*@
+
+    <div>
+        @using (Html.BeginForm("RandevuAl", "RandevuAl"))
+        {
+
+            <div class="container">
+                <div class="row">
+                    <div>
+                        <select class="form-group col-md-offset-5" id="DoktorCBox" name="DoktorCBox">
+                            <option value="0">Doktor Seçiniz</option>
+                            @foreach (var doktor in Model.DoktorListesi)
+                            {
+                                <option value="@doktor.ID">@doktor.Unvan @doktor.Ad @doktor.Soyad</option>
+                            }
+                        </select>
+                    </div>                                    @*DoktorCBox*@
+
+                    <div>
+                        <select class="form-group col-md-offset-5" id="AyCBox" name="AyCBox">
+                            <option value="0">Ay Seçiniz</option>
+                            <option value="1">Ocak</option>
+                            <option value="2">Şubat</option>
+                            <option value="3">Mart</option>
+                            <option value="4">Nisan</option>
+                            <option value="5">Mayıs</option>
+                            <option value="6">Haziran</option>
+                            <option value="7">Temmuz</option>
+                            <option value="8">Ağustos</option>
+                            <option value="9">Eylül</option>
+                            <option value="10">Ekim</option>
+                            <option value="11">Kasım</option>
+                            <option value="12">Aralık</option>
+                        </select>
+                    </div>                                    @*AyCBox*@
+
+                    <div>
+                        <select class="form-group col-md-offset-5" id="GünCBox" name="GünCBox">
+                            <option value="0">Gün Seçiniz</option>
+                            @for (int i = 1; i <= 31; i++)
+                            {
+                                <option value="@i">@i</option>
+                            }
+                        </select>
+
+                    </div>                                    @*GünCBox*@
+
+                    <div>
+                        <select class="form-group col-md-offset-5" id="SaatCBox" name="saatCBox">
+                            <option value="0">Saat Seçiniz</option>
+                            <option value="1">08:00</option>
+                            <option value="2">08:15</option>
+                            <option value="3">08:30</option>
+                            <option value="4">08:45</option>
+                            <option value="5">09:00</option>
+                            <option value="6">09:15</option>
+                            <option value="7">09:30</option>
+                            <option value="8">09:45</option>
+                            <option value="9">10:00</option>
+                            <option value="10">10:15</option>
+                            <option value="11">10:30</option>
+                            <option value="12">10:45</option>
+                            <option value="13">11:00</option>
+                            <option value="14">11:15</option>
+                            <option value="15">11:30</option>
+                            <option value="16">11:45</option>
+                            <option value="17">12:00</option>
+                            <option value="18">12:15</option>
+                            <option value="19">12:30</option>
+                            <option value="20">12:45</option>
+                            <option value="21">13:00</option>
+                            <option value="22">13:15</option>
+                            <option value="23">13:30</option>
+                            <option value="24">13:45</option>
+                            <option value="25">14:00</option>
+                            <option value="26">14:15</option>
+                            <option value="27">14:30</option>
+                            <option value="28">14:45</option>
+                            <option value="29">15:00</option>
+                            <option value="30">15:15</option>
+                            <option value="31">15:30</option>
+                            <option value="32">15:45</option>
+                            <option value="33">16:00</option>
+                            <option value="34">16:15</option>
+                            <option value="35">16:30</option>
+                            <option value="36">16:45</option>
+                            <option value="37">17:00</option>
+                            <option value="38">17:15</option>
+                            <option value="39">17:30</option>
+                        </select>
+
+                    </div>                                    @*SaatCBox*@
+
+                    <input hidden type="text" name="HastaIDGöster" value="@TempData["HastaIDGöster"]" />
+
+                    <div class="text-center">
+                        <input type="submit" id="BtnKaydet" value="Kaydet" class="btn btn-warning" />
+                    </div>                @*BtnKaydet*@
+                </div>
+            </div>
+
+        }
+    </div>
+
+    <style>
+        .input-group-addon {
+            background-color: darkorange;
+            color: white;
+        }
+
+        .btn-warning {
+            background-color: darkorange;
+        }
+
+
+        #DoktorCBox {
+            position: fixed;
+            top: 248px;
+            height: 33px;
+            left: 0px;
+            width: 262px;
+            background-color: darkorange;
+            color: white;
+        }
+
+        #AyCBox {
+            position: fixed;
+            top: 282px;
+            height: 33px;
+            left: 0px;
+            width: 131px;
+            background-color: darkorange;
+            color: white;
+        }
+
+        #GünCBox {
+            position: fixed;
+            top: 282px;
+            height: 33px;
+            left: 131px;
+            width: 131px;
+            background-color: darkorange;
+            color: white;
+        }
+
+        #SaatCBox {
+            position: fixed;
+            top: 317px;
+            height: 33px;
+            left: 0px;
+            width: 262px;
+            background-color: darkorange;
+            color: white;
+        }
+
+        #BtnKaydet {
+            position: fixed;
+            top: 390px;
+            height: 33px;
+            left: 710px;
+            width: 131px;
+            background-color: darkorange;
+            color: white;
+        }
+    </style>
+
+    @using (Html.BeginForm())
+    {
+        @Html.Raw(TempData["HastaKaydıVar"])
+    }
+
+</body>
+</html>

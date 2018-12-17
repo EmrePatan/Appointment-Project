@@ -1,0 +1,65 @@
+﻿@model RandevuSistemiGüncel.Models.Hastalar
+
+@{
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RandevuAl</title>
+</head>
+<body>
+    @using (Html.BeginForm("Hastalar", "Hastalar"))
+    {
+        <div class="container">
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <span class="input-group-addon" id="txtkimlik">TC</span>
+                    @Html.TextBoxFor(x => x.TC, new { @class = "form-control", placeholder = "Lütfen Buraya TC'nizi Yazınız", aria_describedby = "txtkimlik" })
+                </div>
+
+                <div class="form-group col-md-4">
+                    <span class="input-group-addon" id="txtad">Ad</span>
+                    @Html.TextBoxFor(x => x.Ad, new { @class = "form-control", placeholder = "Lütfen Buraya Adınızı Yazınız", aria_describedby = "txtad" })
+                </div>
+
+                <div class="form-group col-md-4">
+                    <span class="input-group-addon" id="txtsoyad">Soyad</span>
+                    @Html.TextBoxFor(x => x.Soyad, new { @class = "form-control", placeholder = "Lütfen Buraya Soyadınızı Yazınız", aria_describedby = "txtsoyad" })
+                </div>
+
+                <div class="text-center">
+                    <input type="submit" value="Giriş Yap" class="btn btn-warning" />
+                </div>
+            </div>
+            <span style="color:red;font-size:large;position:fixed;left:620px;top:200px">@TempData["FailedHasta"]</span>
+            <span style="color:red;font-size:large;position:fixed;left:620px;top:200px">@TempData["Failed"]</span>
+        </div>
+    }
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.Raw(TempData["RandevuSuccessMessage"])
+    }
+
+    @using (Html.BeginForm())
+    {
+        @Html.Raw(TempData["RandevuSuccessMessage1"])
+    }
+
+    <style>
+        .input-group-addon {
+            background-color: darkorange;
+            color: white;
+        }
+
+        .btn-warning {
+            background-color: darkorange;
+        }
+    </style>
+</body>
+</html>

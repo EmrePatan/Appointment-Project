@@ -1,0 +1,89 @@
+﻿
+@{
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Index</title>
+</head>
+<body>
+    <div class="text-center input-group-addon">
+        <img src="~/Content/Capture.PNG" />
+    </div>
+
+    <div class="news-section">
+        <div class="container">
+            <div class="col-md-3 news-column">
+                <img class="img-responsive" src="~/Content/1.jpg" id="1">
+                <h4>SAĞLIK BAKANLIĞINDAN DUYURU</h4>
+                <p>Pellentesque ut urna eu mauris scele risque auctor volutpat et massa pers piciis iste natus scele risque auctor volutpat et massa.</p>
+                <a href="single.html"><h5>Haberin Devamını Görmek İçin Tıklayınız</h5></a>
+            </div>
+            <div class="col-md-3 news-column">
+                <img class="img-responsive" src="~/Content/2.jpg" id="2">
+                <h4>ÜNİVERSİTE HASTANELERİ HAKKINDA DÜZENLEME</h4>
+                <p>Pellentesque ut urna eu mauris scele risque auctor volutpat et massa pers piciis iste natus scele risque auctor volutpat et massa.</p>
+                <a href="single.html"><h5>Haberin Devamını Görmek İçin Tıklayınız</h5></a>
+            </div>
+            <div class="col-md-3 news-column">
+                <img class="img-responsive" src="~/Content/3.jpeg" id="3">
+                <h4>YENİ NESİL MR CİHAZLARIMIZ</h4>
+                <p>Pellentesque ut urna eu mauris scele risque auctor volutpat et massa pers piciis iste natus scele risque auctor volutpat et massa.</p>
+                <a href="single.html"><h5>Haberin Devamını Görmek İçin Tıklayınız</h5></a>
+            </div>
+            <div class="col-md-3 news-column">
+                <img class="img-responsive" src="~/Content/4.png" id="4">
+                <h4>KALİTELİ UZMAN KADROMUZLA HİZMET VERMEKTEYİZ</h4>
+                <p>Pellentesque ut urna eu mauris scele risque auctor volutpat et massa pers piciis iste natus scele risque auctor volutpat et massa.</p>
+                <a href="single.html"><h5>Haberin Devamını Görmek İçin Tıklayınız</h5></a>
+            </div>
+        </div>
+    </div>
+
+
+    <style>
+        .text-center {
+            background-color: white;
+        }
+
+        .news-section {
+    padding: 4em 0 3.5em;
+}
+
+        .img-responsive{
+            height:180px;
+            width:280px
+        }
+
+.news-column h4 {
+    font-size: 1.3em;
+    text-transform: uppercase;
+    color: #000;
+    font-weight: 700;
+    padding: 0.8em 0 0.3em;
+    margin: 0;
+}
+
+.news-column p {
+    color: #777;
+    line-height: 1.7em;
+    padding: 0.1em 0 0em;
+    display: block;
+    font-size: 1em;
+}
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            $(".col-md-3").hover(function () {
+                $(this).css("background-color", "aqua");
+            }, function () {
+                $(this).css("background-color", "white");
+            });
+        });
+    </script>
+</body>
+</html>
